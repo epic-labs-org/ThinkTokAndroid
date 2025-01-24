@@ -12,6 +12,8 @@ composeBom = "2024.04.01"
 room = "2.6.1"
 ktor = "3.0.3"
 coroutine = "1.7.2"
+kotest = "5.9"
+kotest-extensions-roboelectric = "0.5.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,7 +45,14 @@ ktor-serialization = { group = "io.ktor",name = "ktor-client-serialization", ver
 ktor-serialization-jvm = { group = "io.ktor",name = "ktor-client-serialization-jvm", version.ref = "ktor" }
 ktor-logging = { group = "io.ktor",name = "ktor-client-logging-jvm", version.ref = "ktor" }
 
-serialization-json = { group = "org.jetbrains.kotlinx",name = "kotlinx-serialization-json", version = "1.0.1" }
+#Kotest
+kotest-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+kotest-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+kotest-datatest = { group = "io.kotest", name = "kotest-framework-datatest", version.ref = "kotest" }
+kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
+kotest-extensions-roboelectric = { module = "io.kotest.extensions:kotest-extensions-robolectric", version.ref = "kotest-extensions-roboelectric" }
+
+serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.0.1" }
 
 #Coroutines
 coroutines-core = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-core", version.ref = "coroutine" }
