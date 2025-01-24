@@ -10,6 +10,8 @@ lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2024.04.01"
 room = "2.6.1"
+ktor = "3.0.3"
+coroutine = "1.7.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,7 +36,18 @@ room-ktx = { group = "androidx.room",name = "room-ktx", version.ref = "room" }
 room-testing = { group = "androidx.room",name = "room-testing", version.ref = "room" }
 room-paging = { group = "androidx.room",name = "room-paging", version.ref = "room" }
 
+#Ktor:
+ktor-core = { group = "io.ktor",name = "ktor-client-core", version.ref = "ktor" }
+ktor-android = { group = "io.ktor",name = "ktor-client-android", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor",name = "ktor-client-serialization", version.ref = "ktor" }
+ktor-serialization-jvm = { group = "io.ktor",name = "ktor-client-serialization-jvm", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor",name = "ktor-client-logging-jvm", version.ref = "ktor" }
 
+serialization-json = { group = "org.jetbrains.kotlinx",name = "kotlinx-serialization-json", version = "1.0.1" }
+
+#Coroutines
+coroutines-core = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android", version = "1.0.1" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
