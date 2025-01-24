@@ -34,18 +34,18 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 #Room:
-room-runtime = { group = "androidx.room",name = "room-runtime", version.ref = "room" }
-room-compiler = { group = "androidx.room",name = "room-compiler", version.ref = "room" }
-room-ktx = { group = "androidx.room",name = "room-ktx", version.ref = "room" }
-room-testing = { group = "androidx.room",name = "room-testing", version.ref = "room" }
-room-paging = { group = "androidx.room",name = "room-paging", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 #Ktor:
-ktor-core = { group = "io.ktor",name = "ktor-client-core", version.ref = "ktor" }
-ktor-android = { group = "io.ktor",name = "ktor-client-android", version.ref = "ktor" }
-ktor-serialization = { group = "io.ktor",name = "ktor-client-serialization", version.ref = "ktor" }
-ktor-serialization-jvm = { group = "io.ktor",name = "ktor-client-serialization-jvm", version.ref = "ktor" }
-ktor-logging = { group = "io.ktor",name = "ktor-client-logging-jvm", version.ref = "ktor" }
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
+ktor-serialization-jvm = { group = "io.ktor", name = "ktor-client-serialization-jvm", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
 
 #Kotest
 kotest-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
@@ -73,9 +73,9 @@ junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", ve
 serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.0.1" }
 
 #Coroutines
-coroutines-core = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-core", version.ref = "coroutine" }
-coroutines-test = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-test", version.ref = "coroutine" }
-coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android", version.ref = "coroutine" }#For testing Android components with coroutines
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutine" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }#For testing Android components with coroutines
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
