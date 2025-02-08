@@ -1,4 +1,4 @@
-package com.epiclabs.thinktokap
+package com.epiclabs.thinktok.core
 
 import org.junit.Test
 

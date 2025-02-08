@@ -1,4 +1,4 @@
-package com.epiclabs.thinktokap.ui.theme
+package com.epiclabs.thinktok.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

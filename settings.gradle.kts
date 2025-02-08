@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "Think Tok"
 include(":app")
- 
+include(":core")

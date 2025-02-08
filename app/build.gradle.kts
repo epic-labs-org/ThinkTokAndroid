@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.epiclabs.thinktokap"
+    namespace = "com.epiclabs.thinktok"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.epiclabs.thinktokap"
+        applicationId = "com.epiclabs.thinktok"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
