@@ -26,3 +26,4 @@ rootProject.name = "Think Tok"
 include(":app")
 include(":core")
 include(":features:main:domain")
+include(":features:main:presentation")
