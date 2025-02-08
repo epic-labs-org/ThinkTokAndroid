@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.epiclabs.thinktok.main.presentation"
+    namespace = "com.epiclabs.thinktok.main.repository"
     compileSdk = 35
 
     defaultConfig {
