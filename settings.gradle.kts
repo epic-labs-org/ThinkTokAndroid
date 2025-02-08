@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         google {
@@ -23,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "Think Tok"
 include(":app")
 include(":core")
+include(":features:main:domain")
