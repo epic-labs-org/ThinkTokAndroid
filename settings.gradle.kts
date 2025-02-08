@@ -25,6 +25,8 @@ dependencyResolutionManagement {
 rootProject.name = "Think Tok"
 include(":app")
 include(":core")
+include(":data:remote")
+include(":data:local")
 include(":features:main:domain")
-include(":features:main:presentation")
-include(":features:main:repository")
+include(":features:data:presentation")
+include(":features:data:repository")

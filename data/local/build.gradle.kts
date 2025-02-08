@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.epiclabs.thinktok.main.domain"
+    namespace = "com.epiclabs.thinktok.data.local"
     compileSdk = 35
 
     defaultConfig {
@@ -37,5 +37,4 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }
