@@ -18,16 +18,11 @@ class AndroidModulePlugin : Plugin<Project> {
                 minSdk = 24
 
                 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-                consumerProguardFiles("consumer-rules.pro")
             }
 
             buildTypes {
                 getByName("release") {
                     isMinifyEnabled = false
-                    proguardFiles(
-                        getDefaultProguardFile("proguard-android-optimize.txt"),
-                        "proguard-rules.pro"
-                    )
                 }
             }
 
