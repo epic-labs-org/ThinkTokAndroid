@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 pluginManagement {
     repositories {
         google {
@@ -28,5 +26,5 @@ include(":core")
 include(":data:remote")
 include(":data:local")
 include(":features:main:domain")
-include(":features:data:presentation")
-include(":features:data:repository")
+include(":features:main:presentation")
+include(":features:main:repository")
