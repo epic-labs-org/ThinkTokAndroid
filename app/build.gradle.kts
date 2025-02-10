@@ -45,6 +45,7 @@ tasks.withType<Test>().configureEach {
 }
 
 dependencies {
+    implementation(project(":feature:main:ui"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
