@@ -1,8 +1,11 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.ksp) apply false
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -38,7 +41,25 @@ android {
     buildFeatures {
         compose = true
     }
+
+    ktlint {
+        // Enable Android-specific linting rules
+        android.set(true)
+        // Fail the build if KtLint finds any issues
+        ignoreFailures.set(true)
+        verbose.set(true)
+        enableExperimentalRules.set(true)
+        filter {
+            exclude("**/generated/**")
+        }
+
+        reporters {
+            reporter(ReporterType.PLAIN)
+        }
+    }
 }
+
+tasks.getByPath("preBuild").dependsOn("ktlintFormat")
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
