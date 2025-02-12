@@ -22,7 +22,7 @@ class AndroidModulePlugin : Plugin<Project> {
 
             buildTypes {
                 getByName("release") {
-                    isMinifyEnabled = false
+                    isMinifyEnabled = true
                 }
             }
 
@@ -33,7 +33,7 @@ class AndroidModulePlugin : Plugin<Project> {
 
         }
         project.extensions.configure<KotlinAndroidProjectExtension> {
-            jvmToolchain(21)
+            jvmToolchain(17)
         }
     }
 }
