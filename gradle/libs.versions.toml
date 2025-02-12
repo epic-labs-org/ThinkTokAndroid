@@ -62,7 +62,7 @@ koin-junit4 = { group = "io.insert-koin", name = "koin-test-junit4" }
 koin-navigation = { group = "io.insert-koin", name = "koin-androidx-navigation" }
 koin-startup = { group = "io.insert-koin", name = "koin-androidx-startup" }
 koin-test = { group = "io.insert-koin", name = "koin-android-test" }
-koin-viewmode = { group = "io.insert-koin", name = "koin-compose-viewmode" }
+koin-viewmode = { group = "io.insert-koin", name = "koin-compose-viewmodel" }
 koin-viewmodel-navigation = { group = "io.insert-koin", name = "koin-androidx-compose-navigation" }
 koin-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager" }
 
