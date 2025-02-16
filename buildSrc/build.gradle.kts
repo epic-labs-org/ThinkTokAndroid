@@ -1,6 +1,8 @@
 plugins {
     `kotlin-dsl`
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
 }
+apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
 repositories {
     gradlePluginPortal()
@@ -13,4 +15,19 @@ dependencies {
     implementation(gradleApi())
     implementation(kotlin("gradle-plugin", version = "2.0.0"))
     implementation("org.jlleitschuh.gradle:ktlint-gradle:12.1.2")
+}
+ktlint {
+    android = false // If you're not using Android, set to false
+    outputToConsole = true
+    outputColorName = "RED"
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+    }
+}
+tasks {
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            // ... other kotlin options, if any
+        }
+    }
 }

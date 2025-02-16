@@ -16,14 +16,11 @@ class AppModulePlugin : Plugin<Project> {
 
             addDefaultConfig()
 
-            addBuildTypes()
+            addBuildTypes(project)
 
             addCompileOptions()
 
             addBuildFeatures()
         }
-
     }
-
 }
-

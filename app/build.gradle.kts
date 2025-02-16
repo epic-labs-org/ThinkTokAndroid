@@ -1,30 +1,11 @@
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
-
 plugins {
     alias(libs.plugins.app.module)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.ksp) apply false
-    alias(libs.plugins.ktlint)
 }
 
 android {
     namespace = "com.epiclabs.thinktok"
-
-    ktlint {
-        // Enable Android-specific linting rules
-        android.set(true)
-        // Fail the build if KtLint finds any issues
-        ignoreFailures.set(true)
-        verbose.set(true)
-        enableExperimentalRules.set(true)
-        filter {
-            exclude("**/generated/**")
-        }
-
-        reporters {
-            reporter(ReporterType.PLAIN)
-        }
-    }
 }
 
 dependencies {
