@@ -1,8 +1,7 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
-    id(libs.plugins.android.application.get().pluginId)
-    id(libs.plugins.kotlin.android.get().pluginId) 
+    alias(libs.plugins.app.module)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.ksp) apply false
     alias(libs.plugins.ktlint)
@@ -10,37 +9,6 @@ plugins {
 
 android {
     namespace = "com.epiclabs.thinktok"
-    compileSdk = 35
-
-    defaultConfig {
-        applicationId = "com.epiclabs.thinktok"
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-    buildFeatures {
-        compose = true
-    }
 
     ktlint {
         // Enable Android-specific linting rules
@@ -57,12 +25,6 @@ android {
             reporter(ReporterType.PLAIN)
         }
     }
-}
-
-tasks.getByPath("preBuild").dependsOn("ktlintFormat")
-
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
 }
 
 dependencies {
