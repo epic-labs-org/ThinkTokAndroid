@@ -11,10 +11,10 @@ if [ ! -d ".git/hooks" ]; then
   mkdir -p .git/hooks
 fi
 
-# Copy the pre-commit hook
-cp scripts/git-hooks/pre-commit .git/hooks/pre-commit
+# Copy the pre-receive hook
+cp scripts/git-hooks/pre-receive .git/hooks/pre-receive
 
 # Make the hook executable
-chmod +x .git/hooks/pre-commit
+chmod +x .git/hooks/pre-receive
 
 echo "Git hooks installed successfully!"
