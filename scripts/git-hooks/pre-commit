@@ -1,22 +1,11 @@
 #!/bin/sh
 
 echo "Running ktlintFormat..."
-./gradlew ktlintFormat
+./gradlew ktlintFormat || exit 1
 
-if [ $? -ne 0 ]; then
-    echo "Error: ktlintFormat failed. Commit aborted."
-    exit 1
-fi
+echo "ktlintFormat completed successfully."
 
-echo "ktlintFormat completed successfully. Re-adding modified files..."
+echo "Running gradle build..."
+./gradlew build || exit 1
 
-git add .
-
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to re-add modified files. Commit aborted."
-    exit 1
-fi
-
-echo "Modified files re-added. Continuing with commit..."
-
-exit 0
+echo "build completed successfully."
