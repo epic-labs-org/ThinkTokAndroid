@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.module)
 }
 
-android{
+android {
     namespace = "com.epiclabs.thinktok.main.ui"
 }
 
