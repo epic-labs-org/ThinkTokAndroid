@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "Running ktlintFormat..."
+./gradlew buildSrc:ktlintFormat || exit 1
 ./gradlew ktlintFormat || exit 1
 
 echo "ktlintFormat completed successfully."
