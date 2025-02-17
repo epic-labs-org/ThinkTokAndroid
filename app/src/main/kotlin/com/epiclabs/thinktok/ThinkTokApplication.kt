@@ -26,6 +26,7 @@ class ThinkTokApplication : Application() {
         }
     }
 
+    // TODO("It's a test module! it will be removed as part of #30")
     private fun KoinApplication.addMainModules() {
         modules(
             mainModule,
