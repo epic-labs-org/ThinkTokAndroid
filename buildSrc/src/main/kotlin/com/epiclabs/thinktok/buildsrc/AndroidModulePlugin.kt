@@ -1,4 +1,5 @@
 package com.epiclabs.thinktok.buildsrc
+
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -9,21 +10,20 @@ class AndroidModulePlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.apply("com.android.library")
         project.plugins.apply("org.jetbrains.kotlin.android")
-        project.logger.lifecycle("AndroidModulePlugin applied to: ${project.name}")
+        project
+            .logger.lifecycle("AndroidModulePlugin applied to: ${project.name}")
         project.extensions.configure<LibraryExtension> {
             compileSdk = 35
 
             addDefaultConfig()
 
-            addBuildTypes()
+            addBuildTypes(project)
 
             addCompileOptions()
-
         }
+
         project.extensions.configure<KotlinAndroidProjectExtension> {
             jvmToolchain(21)
         }
     }
-
-
 }

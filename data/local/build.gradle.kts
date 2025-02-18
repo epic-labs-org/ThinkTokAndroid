@@ -6,7 +6,6 @@ android {
     namespace = "com.epiclabs.thinktok.data.local"
 }
 
-
 dependencies {
     implementation(project(":feature:main:repository:api"))
 

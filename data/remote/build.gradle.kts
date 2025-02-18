@@ -6,7 +6,6 @@ android {
     namespace = "com.epiclabs.thinktok.data.remote"
 }
 
-
 dependencies {
     implementation(project(":feature:main:repository:api"))
 
