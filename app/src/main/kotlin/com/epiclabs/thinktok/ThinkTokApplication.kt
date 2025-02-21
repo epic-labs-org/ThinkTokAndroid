@@ -10,7 +10,6 @@ import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 
 class ThinkTokApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
 
@@ -31,7 +30,7 @@ class ThinkTokApplication : Application() {
         modules(
             mainModule,
             mainDomainModule,
-            somethingRepositoryModule
+            somethingRepositoryModule,
         )
     }
 }

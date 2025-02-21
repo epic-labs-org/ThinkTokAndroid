@@ -5,9 +5,10 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 // TODO("It's a test module! it will be removed as part of #30")
-val mainModule = module {
+val mainModule =
+    module {
 
-    viewModel {
-        MainViewModel(get())
+        viewModel {
+            MainViewModel(get())
+        }
     }
-}

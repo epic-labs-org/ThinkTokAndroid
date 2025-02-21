@@ -1,9 +1,10 @@
 package com.epiclabs.thinktok.buildsrc
-
+import java.io.File
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.gradle.TestedExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.api.JavaVersion.VERSION_21
+import org.gradle.api.Project
 
 internal fun TestedExtension.addCompileOptions() {
     compileOptions {
@@ -12,14 +13,25 @@ internal fun TestedExtension.addCompileOptions() {
     }
 }
 
-internal fun CommonExtension<*, *, *, *, *, *>.addBuildTypes() {
+internal fun CommonExtension<*, *, *, *, *, *>.addBuildTypes(project: Project,isMinifyEnabledInDebug:Boolean = true) {
     buildTypes {
+        val proguardFile = File(project.projectDir, "proguard-rules.pro")
+
         getByName("release") {
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            isMinifyEnabled = isMinifyEnabledInDebug
+            if (proguardFile.exists()) {
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro",
+                )
+            } else {
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                )
+            }
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
         }
     }
 }

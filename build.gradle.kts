@@ -1,7 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE
 plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.ksp) apply false
@@ -19,7 +20,32 @@ allprojects {
     }
 
     tasks.withType<Test>().configureEach {
-        useJUnitPlatform()
+        useJUnit()
     }
+}
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    afterEvaluate {
+        project.extensions.configure<KtlintExtension> {
+            // Enable Android-specific linting rules
+            android.set(true)
+            // Fail the build if KtLint finds any issues
+            ignoreFailures.set(true)
+            verbose.set(true)
+            enableExperimentalRules.set(true)
+            filter {
+                exclude("**/generated/**")
+            }
 
+            reporters {
+                reporter(PLAIN)
+                reporter(CHECKSTYLE)
+            }
+
+        }
+
+        tasks.matching { it.name == "preBuild" }.configureEach {
+            dependsOn("ktlintFormat")
+        }
+    }
 }

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
-android{
+android {
     namespace = "com.epiclabs.thinktok.main.ui"
 }
 
