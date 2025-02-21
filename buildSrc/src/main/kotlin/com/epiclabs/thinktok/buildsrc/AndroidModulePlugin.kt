@@ -17,7 +17,7 @@ class AndroidModulePlugin : Plugin<Project> {
 
             addDefaultConfig()
 
-            addBuildTypes(project,false)
+            addBuildTypes(project, false)
 
             addCompileOptions()
         }

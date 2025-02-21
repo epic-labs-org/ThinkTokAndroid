@@ -13,7 +13,10 @@ internal fun TestedExtension.addCompileOptions() {
     }
 }
 
-internal fun CommonExtension<*, *, *, *, *, *>.addBuildTypes(project: Project,isMinifyEnabledInDebug:Boolean = true) {
+internal fun CommonExtension<*, *, *, *, *, *>.addBuildTypes(
+    project: Project,
+    isMinifyEnabledInDebug: Boolean = true,
+) {
     buildTypes {
         val proguardFile = File(project.projectDir, "proguard-rules.pro")
 
