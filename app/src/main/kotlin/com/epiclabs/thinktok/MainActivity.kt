@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.epiclabs.thinktok.main.ui.MainScreen
 import com.epiclabs.thinktok.ui.theme.ThinkTokTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,11 +20,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ThinkTokTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                ) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    MainScreen(
                         modifier = Modifier.padding(innerPadding),
                     )
                 }
