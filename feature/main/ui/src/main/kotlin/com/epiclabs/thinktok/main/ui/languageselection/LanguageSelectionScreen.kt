@@ -71,7 +71,7 @@ internal fun PreviewLanguageSelectionScreen() {
             yourLanguageLabel = "Your Language",
             languageToLearnLabel = "What language do you want to learn",
             buttonText = "Submit and continue",
-            languagesToLearnEnabled = false
+            languagesToLearnEnabled = false,
         ),
     )
 }
