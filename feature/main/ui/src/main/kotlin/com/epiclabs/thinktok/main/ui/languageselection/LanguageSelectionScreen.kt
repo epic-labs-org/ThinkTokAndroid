@@ -46,7 +46,7 @@ internal fun LanguageSelectionScreen(
             languages = languagesToLearn,
             placeholder = selectedLanguageTo,
             onLanguageSelected = onLanguageToLearnSelected,
-            enabled = languagesToLearn.isNotEmpty(),
+            enabled = languagesToLearnEnabled,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -71,6 +71,7 @@ internal fun PreviewLanguageSelectionScreen() {
             yourLanguageLabel = "Your Language",
             languageToLearnLabel = "What language do you want to learn",
             buttonText = "Submit and continue",
+            languagesToLearnEnabled = false
         ),
     )
 }

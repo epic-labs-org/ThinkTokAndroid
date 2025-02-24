@@ -7,6 +7,7 @@ data class LanguageSelectionUiModel(
     val yourLanguages: List<String>,
     val selectedYourLanguage: String,
     val languagesToLearn: List<String>,
+    val languagesToLearnEnabled: Boolean,
     val selectedLanguageTo: String,
     val yourLanguageLabel: String,
     val languageToLearnLabel: String,
