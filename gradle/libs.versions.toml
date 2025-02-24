@@ -17,6 +17,7 @@ ktor = "3.0.3"
 lifecycle = "2.8.7"
 room = "2.6.1"
 ktlint = "12.1.2"
+uiTooling = "1.7.8"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
