@@ -8,9 +8,9 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 internal fun SubmitAndContinueButton(
+    buttonText: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
-    buttonText: String,
 ) {
     Button(onClick = onClick, modifier = modifier) {
         Text(text = buttonText)
