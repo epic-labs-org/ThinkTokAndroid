@@ -9,7 +9,15 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":data:remote"))
+    implementation(project(":data:local"))
     implementation(project(":feature:main:ui"))
+    implementation(project(":feature:main:domain"))
+    implementation(project(":feature:main:domain:api"))
+    implementation(project(":feature:main:presentation"))
+    implementation(project(":feature:main:repository"))
+    implementation(project(":feature:main:repository:api"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -20,6 +28,16 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.core.splashscreen)
+
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.navigation)
+    implementation(libs.koin.viewmodel)
+    implementation(libs.koin.viewmodel.navigation)
+    testImplementation(libs.koin.test)
+    testImplementation(libs.koin.junit4)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

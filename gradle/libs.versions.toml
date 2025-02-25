@@ -8,13 +8,13 @@ espressoCore = "3.5.1"
 junit = "4.13.2"
 junit5 = "5.11.4"
 junitVersion = "1.1.5"
-koinBom = "4.0.2"
+koinBom = "4.0.0"
 kotest = "5.9"
 kotest-extensions-roboelectric = "0.5.0"
 kotlin = "2.0.0"
 ksp = "2.0.21-1.0.27"
 ktor = "3.0.3"
-lifecycleRuntimeKtx = "2.6.1"
+lifecycle = "2.8.7"
 room = "2.6.1"
 ktlint = "12.1.2"
 splashscreen = "1.0.1"
@@ -26,7 +26,8 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
@@ -59,13 +60,14 @@ kotest-property = { group = "io.kotest", name = "kotest-property", version.ref =
 
 #Koin
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
 koin-coroutines = { group = "io.insert-koin", name = "koin-core-coroutines" }
 koin-junit4 = { group = "io.insert-koin", name = "koin-test-junit4" }
 koin-navigation = { group = "io.insert-koin", name = "koin-androidx-navigation" }
 koin-startup = { group = "io.insert-koin", name = "koin-androidx-startup" }
 koin-test = { group = "io.insert-koin", name = "koin-android-test" }
-koin-viewmode = { group = "io.insert-koin", name = "koin-compose-viewmodel" }
+koin-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel" }
 koin-viewmodel-navigation = { group = "io.insert-koin", name = "koin-androidx-compose-navigation" }
 koin-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager" }
 

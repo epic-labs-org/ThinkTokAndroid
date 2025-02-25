@@ -13,12 +13,15 @@ internal fun TestedExtension.addCompileOptions() {
     }
 }
 
-internal fun CommonExtension<*, *, *, *, *, *>.addBuildTypes(project: Project) {
+internal fun CommonExtension<*, *, *, *, *, *>.addBuildTypes(
+    project: Project,
+    isMinifyEnabledInRelease: Boolean = true,
+) {
     buildTypes {
         val proguardFile = File(project.projectDir, "proguard-rules.pro")
 
         getByName("release") {
-            isMinifyEnabled = true
+            isMinifyEnabled = isMinifyEnabledInRelease
             if (proguardFile.exists()) {
                 proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
