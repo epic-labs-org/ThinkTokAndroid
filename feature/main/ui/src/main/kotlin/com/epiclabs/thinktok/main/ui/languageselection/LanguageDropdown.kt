@@ -21,8 +21,8 @@ internal fun LanguageDropdown(
     placeholder: String,
     onLanguageSelected: (String) -> Unit = {},
 ) {
-    val expanded = remember { mutableStateOf(false) }
-    val selectedLanguage = remember { mutableStateOf(placeholder) }
+    var expanded by remember { mutableStateOf(false) }
+    var selectedLanguage by remember { mutableStateOf(placeholder) }
 
     ExposedDropdownMenuBox(
         modifier = Modifier.fillMaxWidth(),
