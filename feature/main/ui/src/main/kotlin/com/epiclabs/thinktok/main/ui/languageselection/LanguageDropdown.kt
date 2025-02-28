@@ -8,8 +8,10 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -26,19 +28,19 @@ internal fun LanguageDropdown(
 
     ExposedDropdownMenuBox(
         modifier = Modifier.fillMaxWidth(),
-        expanded = expanded.value,
+        expanded = expanded,
         onExpandedChange = {
             if (enabled) {
-                expanded.value = !expanded.value
+                expanded = !expanded
             }
         },
     ) {
         TextField(
-            value = selectedLanguage.value,
+            value = selectedLanguage,
             onValueChange = {},
             readOnly = true,
             enabled = enabled,
-            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded.value) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier =
                 Modifier
                     .menuAnchor()
@@ -47,16 +49,16 @@ internal fun LanguageDropdown(
 
         ExposedDropdownMenu(
             modifier = Modifier.fillMaxWidth(),
-            expanded = expanded.value,
-            onDismissRequest = { expanded.value = false },
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
         ) {
             languages.forEach { language ->
                 DropdownMenuItem(
                     modifier = Modifier.fillMaxWidth(),
                     text = { Text(text = language) },
                     onClick = {
-                        selectedLanguage.value = language
-                        expanded.value = false
+                        selectedLanguage = language
+                        expanded = false
                         onLanguageSelected(language)
                     },
                 )
