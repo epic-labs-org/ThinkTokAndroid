@@ -15,6 +15,7 @@ kotlin = "2.0.0"
 ksp = "2.0.21-1.0.27"
 ktor = "3.0.3"
 lifecycle = "2.8.7"
+robolectric = "4.14.1"
 room = "2.6.1"
 ktlint = "12.1.2"
 splashscreen = "1.0.1"
@@ -36,6 +37,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 #Room:
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }

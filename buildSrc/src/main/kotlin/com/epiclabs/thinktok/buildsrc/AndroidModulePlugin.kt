@@ -14,6 +14,7 @@ class AndroidModulePlugin : Plugin<Project> {
             .logger.lifecycle("AndroidModulePlugin applied to: ${project.name}")
         project.extensions.configure<LibraryExtension> {
             compileSdk = 35
+            testOptions.unitTests.isIncludeAndroidResources = true
 
             addDefaultConfig()
 
