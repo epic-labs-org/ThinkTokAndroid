@@ -13,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,18 +44,19 @@ internal fun LanguageDropdown(
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier =
                 Modifier
+                    .testTag("LanguageDropdownTextField")
                     .menuAnchor()
                     .fillMaxWidth(),
         )
 
         ExposedDropdownMenu(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().testTag("LanguageDropdownMenu"),
             expanded = expanded,
             onDismissRequest = { expanded = false },
         ) {
             languages.forEach { language ->
                 DropdownMenuItem(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().testTag("LanguageDropdownMenuItem-$language"),
                     text = { Text(text = language) },
                     onClick = {
                         selectedLanguage = language
