@@ -53,12 +53,6 @@ ktor-logging = { group = "io.ktor", name = "ktor-client-logging-jvm", version.re
 ktor-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
 ktor-serialization-jvm = { group = "io.ktor", name = "ktor-client-serialization-jvm", version.ref = "ktor" }
 
-#Kotest
-kotest-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
-kotest-datatest = { group = "io.kotest", name = "kotest-framework-datatest", version.ref = "kotest" }
-kotest-extensions-roboelectric = { module = "io.kotest.extensions:kotest-extensions-robolectric", version.ref = "kotest-extensions-roboelectric" }
-kotest-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
-kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
 
 #Koin
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
