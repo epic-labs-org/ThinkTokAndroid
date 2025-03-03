@@ -14,12 +14,11 @@ import org.robolectric.RobolectricTestRunner
 internal class LanguageDropdownTest {
     @get:Rule
     val composeTestRule = createComposeRule()
+    private val languages = listOf("English", "Spanish", "French")
+    private val selectedLanguage = "English"
 
     @Test
-    fun languageDropdown_initialState() {
-        val languages = listOf("English", "Spanish", "French")
-        val selectedLanguage = "English"
-
+    fun `Given languageDropdown When initialState Then check`() {
         composeTestRule.setContent {
             LanguageDropdown(
                 languages = languages,
@@ -35,9 +34,7 @@ internal class LanguageDropdownTest {
     }
 
     @Test
-    fun languageDropdown_expandAndSelect() {
-        val languages = listOf("English", "Spanish", "French")
-        val selectedLanguage = "English"
+    fun `Given languageDropdown When expand and select Then check`() {
         var capturedSelectedLanguage: String? = null
 
         composeTestRule.setContent {
@@ -68,10 +65,7 @@ internal class LanguageDropdownTest {
     }
 
     @Test
-    fun languageDropdown_allLanguagesDisplayed() {
-        val languages = listOf("English", "Spanish", "French")
-        val selectedLanguage = "English"
-
+    fun `Given languageDropdown When all languages displayed Then check`() {
         composeTestRule.setContent {
             LanguageDropdown(
                 languages = languages,
