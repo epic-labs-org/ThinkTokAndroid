@@ -10,6 +10,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":designsystem"))
     implementation(project(":data:remote"))
     implementation(project(":data:local"))
     implementation(project(":feature:main:ui"))
