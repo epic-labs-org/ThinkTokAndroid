@@ -19,6 +19,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.coroutines.android)
     testImplementation(libs.coroutines.test)
 }

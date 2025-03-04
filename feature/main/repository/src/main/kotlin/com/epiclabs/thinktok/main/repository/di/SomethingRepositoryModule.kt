@@ -1,5 +1,6 @@
 package com.epiclabs.thinktok.main.repository.di
 
+import com.epiclabs.thinktok.core.ioDispatcherQualifier
 import com.epiclabs.thinktok.main.domain.api.SomethingRepository
 import com.epiclabs.thinktok.main.domain.api.repository.UserPreferenceRepository
 import com.epiclabs.thinktok.main.repository.UserPreferenceRepositoryImpl
@@ -14,6 +15,9 @@ val somethingRepositoryModule =
         }
 
         single<UserPreferenceRepository> {
-            UserPreferenceRepositoryImpl(get())
+            UserPreferenceRepositoryImpl(
+                ioDispatcher = get(ioDispatcherQualifier),
+                userPreferenceLocalDataSource = get(),
+            )
         }
     }

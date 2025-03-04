@@ -12,4 +12,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    api(platform(libs.koin.bom))
+    api(libs.koin.core)
 }

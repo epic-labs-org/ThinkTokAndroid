@@ -5,6 +5,8 @@ import com.epiclabs.thinktok.data.local.mapper.toUserPreference
 import com.epiclabs.thinktok.data.local.mapper.toUserPreferenceEntity
 import com.epiclabs.thinktok.main.domain.api.model.UserPreference
 import com.epiclabs.thinktok.main.repository.api.UserPreferenceLocalDataSource
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 internal class UserPreferenceLocalDataSourceImpl(private val userPreferenceDao: UserPreferenceDao) :
     UserPreferenceLocalDataSource {
@@ -12,7 +14,7 @@ internal class UserPreferenceLocalDataSourceImpl(private val userPreferenceDao: 
         userPreferenceDao.insertUserPreference(userPreference.toUserPreferenceEntity())
     }
 
-    override suspend fun getUserPreference(): UserPreference? {
-        return userPreferenceDao.getUserPreference()?.toUserPreference()
+    override fun getUserPreference(): Flow<UserPreference?> {
+        return userPreferenceDao.getUserPreference().map { it?.toUserPreference() }
     }
 }

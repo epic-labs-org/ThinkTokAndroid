@@ -1,19 +1,21 @@
 package com.epiclabs.thinktok.main.domain
 
+import com.epiclabs.thinktok.main.domain.api.model.UserPreference
 import com.epiclabs.thinktok.main.domain.api.repository.UserPreferenceRepository
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.first
 
 class SetLanguagePreferenceUseCase(
-    private val ioDispatcher: CoroutineDispatcher,
     private val getLanguagePreferenceUseCase: GetLanguagePreferenceUseCase,
     private val userPreferenceRepository: UserPreferenceRepository,
 ) {
     suspend operator fun invoke(
         learningLanguage: String,
         originLanguage: String,
-    ) = withContext(ioDispatcher) {
-        getLanguagePreferenceUseCase().copy(
+    ) {
+        getLanguagePreferenceUseCase().first() ?: UserPreference(
+            learningLanguage = "",
+            originLanguage = "",
+        ).copy(
             learningLanguage = learningLanguage,
             originLanguage = originLanguage,
         ).also {
