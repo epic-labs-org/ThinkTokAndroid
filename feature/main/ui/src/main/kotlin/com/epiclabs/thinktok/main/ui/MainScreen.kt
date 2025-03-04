@@ -13,6 +13,6 @@ fun MainScreen(
     viewModel: MainViewModel = koinViewModel(),
 ) {
     Column(modifier = modifier) {
-        Text("This is Compose from ${viewModel.getSomething()}")
+        Text("This is Compose from")
     }
 }

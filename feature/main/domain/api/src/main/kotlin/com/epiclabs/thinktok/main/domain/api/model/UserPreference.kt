@@ -1,6 +1,6 @@
 package com.epiclabs.thinktok.main.domain.api.model
 
-data class LanguagePreference(
+data class UserPreference(
     val learningLanguage: String,
     val originLanguage: String,
 )

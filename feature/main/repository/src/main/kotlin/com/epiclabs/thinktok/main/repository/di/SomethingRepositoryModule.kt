@@ -14,6 +14,6 @@ val somethingRepositoryModule =
         }
 
         single<UserPreferenceRepository> {
-            UserPreferenceRepositoryImpl()
+            UserPreferenceRepositoryImpl(get())
         }
     }

@@ -1,6 +1,7 @@
 package com.epiclabs.thinktok
 
 import android.app.Application
+import com.epiclabs.thinktok.data.local.di.dataModule
 import com.epiclabs.thinktok.main.domain.di.mainDomainModule
 import com.epiclabs.thinktok.main.presentation.di.mainModule
 import com.epiclabs.thinktok.main.repository.di.somethingRepositoryModule
@@ -30,6 +31,7 @@ class ThinkTokApplication : Application() {
         modules(
             mainModule,
             mainDomainModule,
+            dataModule,
             somethingRepositoryModule,
         )
     }
