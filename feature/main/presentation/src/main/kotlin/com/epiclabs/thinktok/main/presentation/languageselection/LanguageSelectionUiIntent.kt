@@ -8,4 +8,6 @@ sealed class LanguageSelectionUiIntent {
     data object SubmitClicked : LanguageSelectionUiIntent()
 
     data object LoadUserPreference : LanguageSelectionUiIntent()
+
+    data object PopulateStringResources : LanguageSelectionUiIntent()
 }

@@ -10,8 +10,7 @@ import kotlinx.coroutines.withContext
 internal class UserPreferenceRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher,
     private val userPreferenceLocalDataSource: UserPreferenceLocalDataSource,
-) :
-    UserPreferenceRepository {
+) : UserPreferenceRepository {
     override fun getUserPreference() =
         userPreferenceLocalDataSource
             .getUserPreference()

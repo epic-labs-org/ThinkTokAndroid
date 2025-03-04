@@ -1,4 +1,4 @@
-package com.epiclabs.thinktok.main.presentation.languageselection.model
+package com.epiclabs.thinktok.main.presentation.main
 
 data class MainUiState(
     val isLanguageSet: Boolean = false,

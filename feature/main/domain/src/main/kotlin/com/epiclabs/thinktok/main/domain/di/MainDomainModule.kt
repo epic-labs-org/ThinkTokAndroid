@@ -5,6 +5,7 @@ import com.epiclabs.thinktok.main.domain.SetLanguagePreferenceUseCase
 import kotlinx.coroutines.Dispatchers.IO
 import org.koin.dsl.module
 import com.epiclabs.thinktok.core.ioDispatcherQualifier
+import com.epiclabs.thinktok.main.domain.GetLanguageScreenStringResourcesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 
 val mainDomainModule =
@@ -17,5 +18,8 @@ val mainDomainModule =
         }
         factory {
             SetLanguagePreferenceUseCase(get(), get())
+        }
+        factory {
+            GetLanguageScreenStringResourcesUseCase()
         }
     }

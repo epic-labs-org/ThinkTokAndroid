@@ -5,13 +5,13 @@ import com.epiclabs.thinktok.main.presentation.languageselection.model.LanguageS
 data class LanguageSelectionUiState(
     val languageSelectionUiModel: LanguageSelectionUiModel =
         LanguageSelectionUiModel(
-            yourLanguages = listOf("Persian"),
-            originLanguage = "Persian",
-            languagesToLearn = listOf("English"),
-            learningLanguage = "English",
-            yourLanguageLabel = "Your Language",
-            languageToLearnLabel = "What language do you want to learn",
-            buttonText = "Submit and continue",
+            yourLanguages = listOf(),
+            originLanguage = "",
+            languagesToLearn = listOf(),
+            learningLanguage = "",
+            yourLanguageLabel = "e",
+            languageToLearnLabel = "",
+            buttonText = "",
             languagesToLearnEnabled = false,
         ),
 )

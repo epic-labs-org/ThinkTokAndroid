@@ -4,7 +4,7 @@ import android.app.Application
 import com.epiclabs.thinktok.data.local.di.dataModule
 import com.epiclabs.thinktok.main.domain.di.mainDomainModule
 import com.epiclabs.thinktok.main.presentation.di.mainModule
-import com.epiclabs.thinktok.main.repository.di.somethingRepositoryModule
+import com.epiclabs.thinktok.main.repository.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication
@@ -32,7 +32,7 @@ class ThinkTokApplication : Application() {
             mainModule,
             mainDomainModule,
             dataModule,
-            somethingRepositoryModule,
+            repositoryModule,
         )
     }
 }

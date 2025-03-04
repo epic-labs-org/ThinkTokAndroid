@@ -1,4 +1,4 @@
-package com.epiclabs.thinktok.main.ui
+package com.epiclabs.thinktok.main.ui.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.epiclabs.thinktok.main.presentation.MainViewModel
+import com.epiclabs.thinktok.main.presentation.main.MainViewModel
 import com.epiclabs.thinktok.main.ui.languageselection.LanguageSelectionScreen
 import org.koin.androidx.compose.koinViewModel
 

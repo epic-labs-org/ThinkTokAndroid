@@ -1,12 +1,10 @@
-package com.epiclabs.thinktok.main.presentation
+package com.epiclabs.thinktok.main.presentation.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.epiclabs.thinktok.main.domain.GetLanguagePreferenceUseCase
 import com.epiclabs.thinktok.main.domain.api.model.UserPreference
-import com.epiclabs.thinktok.main.presentation.languageselection.model.MainUiEvent
-import com.epiclabs.thinktok.main.presentation.languageselection.model.MainUiEvent.LoadLanguagePreference
-import com.epiclabs.thinktok.main.presentation.languageselection.model.MainUiState
+import com.epiclabs.thinktok.main.presentation.main.MainUiIntent.LoadLanguagePreference
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,8 +17,8 @@ class MainViewModel(
     private val _uiState = MutableStateFlow(MainUiState())
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
-    private fun onUiEvent(event: MainUiEvent) {
-        when (event) {
+    private fun onUiIntent(intent: MainUiIntent) {
+        when (intent) {
             LoadLanguagePreference -> {
                 viewModelScope.launch {
                     _uiState.update { it.copy(isLoading = true) }
@@ -51,6 +49,6 @@ class MainViewModel(
     }
 
     init {
-        onUiEvent(LoadLanguagePreference)
+        onUiIntent(LoadLanguagePreference)
     }
 }

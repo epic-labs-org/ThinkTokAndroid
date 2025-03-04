@@ -3,11 +3,13 @@ package com.epiclabs.thinktok.main.presentation.languageselection
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.epiclabs.thinktok.main.domain.GetLanguagePreferenceUseCase
+import com.epiclabs.thinktok.main.domain.GetLanguageScreenStringResourcesUseCase
 import com.epiclabs.thinktok.main.domain.SetLanguagePreferenceUseCase
 import com.epiclabs.thinktok.main.domain.api.model.UserPreference
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.LearningLanguageSelected
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.LoadUserPreference
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.OriginLanguageSelected
+import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.PopulateStringResources
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.SubmitClicked
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiSingleEvent.NavigateBackIfNeeded
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -23,6 +25,7 @@ import kotlinx.coroutines.launch
 class LanguageSelectionViewModel(
     private val getLanguagePreferenceUseCase: GetLanguagePreferenceUseCase,
     private val setLanguagePreferenceUseCase: SetLanguagePreferenceUseCase,
+    private val getLanguageScreenStringResourcesUseCase: GetLanguageScreenStringResourcesUseCase,
 ) :
     ViewModel() {
     private lateinit var cachedUerPreference: UserPreference
@@ -59,7 +62,7 @@ class LanguageSelectionViewModel(
                 viewModelScope.launch {
                     getLanguagePreferenceUseCase()
                         .map {
-                            it ?: UserPreference("Persian", "English")
+                            it ?: UserPreference(DEFAULT_LEARNING_LANGUAGE, DEFAULT_ORIGIN_LANGUAGE)
                         }
                         .collect { userLanguagePreference ->
                             cachedUerPreference = userLanguagePreference
@@ -75,10 +78,38 @@ class LanguageSelectionViewModel(
                         }
                 }
             }
+
+            PopulateStringResources -> {
+                viewModelScope.launch {
+                    getLanguageScreenStringResourcesUseCase().also { srtingResources ->
+                        _uiState.update {
+                            it.copy(
+                                languageSelectionUiModel =
+                                    it.languageSelectionUiModel.copy(
+                                        yourLanguages = srtingResources.supportedOriginLanguages,
+                                        originLanguage = srtingResources.originLanguagePlaceHolder,
+                                        languagesToLearn = srtingResources.supportedLearningLanguages,
+                                        learningLanguage = srtingResources.learningLanguagePlaceHolder,
+                                        yourLanguageLabel = srtingResources.yourLanguageLabel,
+                                        languageToLearnLabel = srtingResources.languageToLearnLabel,
+                                        buttonText = srtingResources.buttonText,
+                                        languagesToLearnEnabled = true,
+                                    ),
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 
     init {
         onUiIntent(LoadUserPreference)
+        onUiIntent(PopulateStringResources)
+    }
+
+    private companion object {
+        private const val DEFAULT_LEARNING_LANGUAGE = "Persian"
+        private const val DEFAULT_ORIGIN_LANGUAGE = "English"
     }
 }

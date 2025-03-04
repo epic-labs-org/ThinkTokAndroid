@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.epiclabs.thinktok.main.ui.MainScreen
+import com.epiclabs.thinktok.main.ui.main.MainScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.epiclabs.thinktok.constants.SplashConstant

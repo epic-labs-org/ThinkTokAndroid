@@ -1,19 +1,12 @@
 package com.epiclabs.thinktok.main.repository.di
 
 import com.epiclabs.thinktok.core.ioDispatcherQualifier
-import com.epiclabs.thinktok.main.domain.api.SomethingRepository
 import com.epiclabs.thinktok.main.domain.api.repository.UserPreferenceRepository
 import com.epiclabs.thinktok.main.repository.UserPreferenceRepositoryImpl
-import com.epiclabs.thinktok.main.repository.SomethingRepositoryImpl
 import org.koin.dsl.module
 
-// TODO("It's a test module! it will be removed as part of #30")
-val somethingRepositoryModule =
+val repositoryModule =
     module {
-        factory<SomethingRepository> {
-            SomethingRepositoryImpl()
-        }
-
         single<UserPreferenceRepository> {
             UserPreferenceRepositoryImpl(
                 ioDispatcher = get(ioDispatcherQualifier),
