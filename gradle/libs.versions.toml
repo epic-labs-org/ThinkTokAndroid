@@ -15,6 +15,7 @@ kotlin = "2.0.0"
 ksp = "2.0.21-1.0.27"
 ktor = "3.0.3"
 lifecycle = "2.8.7"
+robolectric = "4.14.1"
 room = "2.6.1"
 ktlint = "12.1.2"
 splashscreen = "1.0.1"
@@ -36,6 +37,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 #Room:
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
@@ -51,12 +53,6 @@ ktor-logging = { group = "io.ktor", name = "ktor-client-logging-jvm", version.re
 ktor-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
 ktor-serialization-jvm = { group = "io.ktor", name = "ktor-client-serialization-jvm", version.ref = "ktor" }
 
-#Kotest
-kotest-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
-kotest-datatest = { group = "io.kotest", name = "kotest-framework-datatest", version.ref = "kotest" }
-kotest-extensions-roboelectric = { module = "io.kotest.extensions:kotest-extensions-robolectric", version.ref = "kotest-extensions-roboelectric" }
-kotest-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
-kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
 
 #Koin
 koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }

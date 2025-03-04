@@ -13,7 +13,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
+
+private const val TEST_TAG_LANGUAGE_DROPDOWN_TEXT_FIELD = "LanguageDropdownTextField"
+private const val TEST_TAG_LANGUAGE_DROPDOWN_MENU = "LanguageDropdownMenu"
+private const val TEST_TAG_LANGUAGE_DROPDOWN_MENU_ITEM = "LanguageDropdownMenuItem-%s"
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,18 +48,19 @@ internal fun LanguageDropdown(
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier =
                 Modifier
+                    .testTag(TEST_TAG_LANGUAGE_DROPDOWN_TEXT_FIELD)
                     .menuAnchor()
                     .fillMaxWidth(),
         )
 
         ExposedDropdownMenu(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().testTag(TEST_TAG_LANGUAGE_DROPDOWN_MENU),
             expanded = expanded,
             onDismissRequest = { expanded = false },
         ) {
             languages.forEach { language ->
                 DropdownMenuItem(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().testTag(TEST_TAG_LANGUAGE_DROPDOWN_MENU_ITEM.format(language)),
                     text = { Text(text = language) },
                     onClick = {
                         selectedLanguage = language

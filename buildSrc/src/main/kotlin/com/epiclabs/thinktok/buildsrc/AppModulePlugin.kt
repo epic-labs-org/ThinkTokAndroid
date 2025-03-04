@@ -13,6 +13,7 @@ class AppModulePlugin : Plugin<Project> {
 
         project.extensions.configure<BaseAppModuleExtension> {
             compileSdk = 35
+            testOptions.unitTests.isIncludeAndroidResources = true
 
             addDefaultConfig()
 
