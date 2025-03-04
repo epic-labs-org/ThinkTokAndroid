@@ -1,7 +1,7 @@
 package com.epiclabs.thinktok.main.domain
 
 class GetLanguageScreenStringResourcesUseCase() {
-    suspend operator fun invoke() =
+    operator fun invoke() =
         Response(
             supportedOriginLanguages = listOf("Persian", "English"),
             originLanguagePlaceHolder = "Persian",
