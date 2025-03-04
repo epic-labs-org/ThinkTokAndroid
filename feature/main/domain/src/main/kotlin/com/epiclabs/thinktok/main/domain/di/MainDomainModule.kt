@@ -1,12 +1,17 @@
 package com.epiclabs.thinktok.main.domain.di
 
-import com.epiclabs.thinktok.main.domain.GetSomethingUseCase
+import com.epiclabs.thinktok.main.domain.GetLanguagePreferenceUseCase
+import kotlinx.coroutines.Dispatchers.IO
 import org.koin.dsl.module
 
-// TODO("It's a test module! it will be removed as part of #30")
+val ioDispatcherQualifier = org.koin.core.qualifier.named("ioDispatcher")
+
 val mainDomainModule =
     module {
+        single<kotlinx.coroutines.CoroutineDispatcher>(qualifier = ioDispatcherQualifier) {
+            IO
+        }
         factory {
-            GetSomethingUseCase(get())
+            GetLanguagePreferenceUseCase(get(ioDispatcherQualifier), get())
         }
     }
