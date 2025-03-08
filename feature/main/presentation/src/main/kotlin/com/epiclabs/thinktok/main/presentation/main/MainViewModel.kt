@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.epiclabs.thinktok.main.domain.GetLanguagePreferenceUseCase
 import com.epiclabs.thinktok.main.domain.api.model.UserPreference
 import com.epiclabs.thinktok.main.presentation.main.MainUiIntent.LoadLanguagePreference
+import com.epiclabs.thinktok.main.presentation.main.MainUiIntent.OnSetLanguageClicked
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,7 +18,7 @@ class MainViewModel(
     private val _uiState = MutableStateFlow(MainUiState())
     val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
-    private fun onUiIntent(intent: MainUiIntent) {
+    fun onUiIntent(intent: MainUiIntent) {
         when (intent) {
             LoadLanguagePreference -> {
                 viewModelScope.launch {
@@ -27,6 +28,18 @@ class MainViewModel(
                     }
                 }
             }
+
+            OnSetLanguageClicked -> {
+                setLanguageSelectionScreenVisibility()
+            }
+        }
+    }
+
+    private fun setLanguageSelectionScreenVisibility() {
+        _uiState.update {
+            it.copy(
+                hideLanguageSelectionScreen = false,
+            )
         }
     }
 
@@ -34,12 +47,12 @@ class MainViewModel(
         _uiState.update {
             if (languagePreference == null) {
                 it.copy(
-                    isLanguageSet = false,
+                    hideLanguageSelectionScreen = false,
                     isLoading = false,
                 )
             } else {
                 it.copy(
-                    isLanguageSet = true,
+                    hideLanguageSelectionScreen = true,
                     learningLanguage = languagePreference.learningLanguage,
                     originLanguage = languagePreference.originLanguage,
                     isLoading = false,
