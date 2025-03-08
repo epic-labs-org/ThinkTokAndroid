@@ -1,4 +1,4 @@
-package com.epiclabs.thinktok.main.ui
+package com.epiclabs.thinktok.main.ui.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
