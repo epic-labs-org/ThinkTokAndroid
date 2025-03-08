@@ -10,6 +10,7 @@ android {
 dependencies {
     implementation(project(":feature:main:presentation"))
     implementation(project(":core"))
+    implementation(project(":designsystem"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
