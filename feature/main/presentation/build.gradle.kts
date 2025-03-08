@@ -8,6 +8,7 @@ android {
 
 dependencies {
     implementation(project(":feature:main:domain"))
+    implementation(project(":feature:main:domain:api"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
