@@ -15,6 +15,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    api(libs.androidx.material.icons.extended)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -1,6 +1,5 @@
 package com.epiclabs.thinktok.main.ui.main
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -16,7 +15,7 @@ import com.epiclabs.thinktok.main.presentation.main.MainViewModel
 import com.epiclabs.thinktok.main.ui.languageselection.LanguageSelectionScreen
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.material.icons.Icons.Filled
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Language
 
 @Composable
 fun MainScreen(
@@ -47,9 +46,8 @@ private fun MainScreen(
             else -> {
                 IconButton(onClick = onLanguageSetClicked) {
                     Icon(
-                        imageVector = Filled.Add,
+                        imageVector = Filled.Language,
                         contentDescription = "Change Language",
-                        modifier = Modifier.clickable { onLanguageSetClicked() },
                     )
                 }
                 Text("Learning Language: ${uiState.learningLanguage}")
@@ -59,16 +57,16 @@ private fun MainScreen(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
     MainScreen(
         uiState =
-            MainUiState(
-                hideLanguageSelectionScreen = false,
-                learningLanguage = "Persian",
-                originLanguage = "English",
-                isLoading = false,
-            ),
+        MainUiState(
+            hideLanguageSelectionScreen = true,
+            learningLanguage = "Persian",
+            originLanguage = "English",
+            isLoading = false,
+        ),
     )
 }
