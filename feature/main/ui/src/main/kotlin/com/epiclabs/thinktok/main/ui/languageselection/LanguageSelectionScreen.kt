@@ -74,8 +74,8 @@ private fun LanguageSelectionScreen(
 
 @Composable
 internal fun LanguageSelectionScreen(
-    onSubmitClick: () -> Unit = { },
     viewModel: LanguageSelectionViewModel = koinViewModel(),
+    onSubmitClick: () -> Unit = { },
 ) {
     val uiState by viewModel.uiState.collectAsState()
     LaunchedEffect(key1 = true) {

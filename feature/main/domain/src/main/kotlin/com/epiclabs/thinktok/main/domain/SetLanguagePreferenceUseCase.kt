@@ -12,9 +12,11 @@ class SetLanguagePreferenceUseCase(
         learningLanguage: String,
         originLanguage: String,
     ) {
-        getLanguagePreferenceUseCase().first() ?: UserPreference(
-            learningLanguage = "",
-            originLanguage = "",
+        (
+            getLanguagePreferenceUseCase().first() ?: UserPreference(
+                learningLanguage = "",
+                originLanguage = "",
+            )
         ).copy(
             learningLanguage = learningLanguage,
             originLanguage = originLanguage,
