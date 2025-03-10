@@ -44,14 +44,14 @@ private fun MainScreen(
             }
 
             else -> {
-                IconButton(onClick = onLanguageSetClicked) {
-                    Icon(
-                        imageVector = Filled.Language,
-                        contentDescription = "Change Language",
-                    )
-                }
-                Text("Learning Language: ${uiState.learningLanguage}")
-                Text("Origin Language: ${uiState.originLanguage}")
+                MainScreenLayout(languageSwitcherContent = {
+                    IconButton(onClick = onLanguageSetClicked) {
+                        Icon(
+                            imageVector = Filled.Language,
+                            contentDescription = "Change Language",
+                        )
+                    }
+                })
             }
         }
     }
@@ -64,8 +64,6 @@ fun MainScreenPreview() {
         uiState =
         MainUiState(
             hideLanguageSelectionScreen = true,
-            learningLanguage = "Persian",
-            originLanguage = "English",
             isLoading = false,
         ),
     )
