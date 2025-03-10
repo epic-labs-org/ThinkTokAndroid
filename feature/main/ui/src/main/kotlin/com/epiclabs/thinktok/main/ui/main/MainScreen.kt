@@ -1,21 +1,21 @@
 package com.epiclabs.thinktok.main.ui.main
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.epiclabs.thinktok.main.presentation.main.MainUiIntent.OnSetLanguageClicked
 import com.epiclabs.thinktok.main.presentation.main.MainUiState
 import com.epiclabs.thinktok.main.presentation.main.MainViewModel
 import com.epiclabs.thinktok.main.ui.languageselection.LanguageSelectionScreen
 import org.koin.androidx.compose.koinViewModel
-import androidx.compose.material.icons.Icons.Filled
-import androidx.compose.material.icons.filled.Language
 
 @Composable
 fun MainScreen(
@@ -44,14 +44,21 @@ private fun MainScreen(
             }
 
             else -> {
-                MainScreenLayout(languageSwitcherContent = {
-                    IconButton(onClick = onLanguageSetClicked) {
-                        Icon(
-                            imageVector = Filled.Language,
-                            contentDescription = "Change Language",
+                MainScreenLayout(
+                    languageSwitcherContent = {
+                        LanguageSwitcherIcon(
+                            onLanguageSetClicked = onLanguageSetClicked,
+                            modifier =
+                                Modifier
+                                    .zIndex(1f)
+                                    .align(Alignment.TopEnd)
+                                    .padding(16.dp),
                         )
-                    }
-                })
+                    },
+                    wordContent = {
+                        WordPager()
+                    },
+                )
             }
         }
     }
@@ -62,9 +69,9 @@ private fun MainScreen(
 fun MainScreenPreview() {
     MainScreen(
         uiState =
-        MainUiState(
-            hideLanguageSelectionScreen = true,
-            isLoading = false,
-        ),
+            MainUiState(
+                hideLanguageSelectionScreen = true,
+                isLoading = false,
+            ),
     )
 }
