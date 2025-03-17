@@ -53,8 +53,6 @@ class MainViewModel(
             } else {
                 it.copy(
                     hideLanguageSelectionScreen = true,
-                    learningLanguage = languagePreference.learningLanguage,
-                    originLanguage = languagePreference.originLanguage,
                     isLoading = false,
                 )
             }
