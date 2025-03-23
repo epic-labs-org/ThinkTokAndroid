@@ -26,13 +26,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlin.math.absoluteValue
 
+const val FLIPABLE_FLASHCARD_FRONT_SIDE_TEST_TAG = "FlipableFlashcardFrontSide"
+const val FLIPABLE_FLASHCARD_BACK_SIDE_TEST_TAG = "FlipableFlashcardBackSide"
+
 @Composable
-fun FlipableFlashcard(
+internal fun FlipableFlashcard(
     front: @Composable () -> Unit,
     back: @Composable () -> Unit,
     modifier: Modifier = Modifier,
@@ -78,7 +82,10 @@ fun FlipableFlashcard(
             if (animatedRotationY <= 90f) {
                 // Front of the card
                 Card(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier =
+                        Modifier
+                            .testTag(FLIPABLE_FLASHCARD_FRONT_SIDE_TEST_TAG)
+                            .fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
                 ) {
                     front()
@@ -88,6 +95,7 @@ fun FlipableFlashcard(
                 Card(
                     modifier =
                         Modifier
+                            .testTag(FLIPABLE_FLASHCARD_BACK_SIDE_TEST_TAG)
                             .fillMaxWidth()
                             .graphicsLayer {
                                 this.rotationY = 180f
