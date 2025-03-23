@@ -32,11 +32,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlin.math.absoluteValue
 
-const val FLIPABLE_FLASHCARD_FRONT_SIDE_TEST_TAG = "FlipableFlashcardFrontSide"
-const val FLIPABLE_FLASHCARD_BACK_SIDE_TEST_TAG = "FlipableFlashcardBackSide"
+const val FLIPPABLE_FLASHCARD_FRONT_SIDE_TEST_TAG = "FlippableFlashcardFrontSide"
+const val FLIPPABLE_FLASHCARD_BACK_SIDE_TEST_TAG = "FlippableFlashcardBackSide"
 
 @Composable
-internal fun FlipableFlashcard(
+internal fun FlippableFlashcard(
     front: @Composable () -> Unit,
     back: @Composable () -> Unit,
     modifier: Modifier = Modifier,
@@ -84,7 +84,7 @@ internal fun FlipableFlashcard(
                 Card(
                     modifier =
                         Modifier
-                            .testTag(FLIPABLE_FLASHCARD_FRONT_SIDE_TEST_TAG)
+                            .testTag(FLIPPABLE_FLASHCARD_FRONT_SIDE_TEST_TAG)
                             .fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
                 ) {
@@ -95,7 +95,7 @@ internal fun FlipableFlashcard(
                 Card(
                     modifier =
                         Modifier
-                            .testTag(FLIPABLE_FLASHCARD_BACK_SIDE_TEST_TAG)
+                            .testTag(FLIPPABLE_FLASHCARD_BACK_SIDE_TEST_TAG)
                             .fillMaxWidth()
                             .graphicsLayer {
                                 this.rotationY = 180f
@@ -111,10 +111,10 @@ internal fun FlipableFlashcard(
 
 @Preview(showBackground = true)
 @Composable
-private fun FlipableFlashcardPreview() {
+private fun FlippableFlashcardPreview() {
     val word = "Example Word"
     val translation = "Example Translation"
-    FlipableFlashcard(
+    FlippableFlashcard(
         modifier =
             Modifier
                 .fillMaxSize(),
