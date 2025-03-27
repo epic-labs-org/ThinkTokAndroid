@@ -15,6 +15,7 @@ dependencies {
     ksp(libs.room.compiler)
 
     implementation(libs.room.ktx)
+    implementation(libs.room.paging)
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
