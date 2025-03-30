@@ -11,6 +11,8 @@ dependencies {
     implementation(project(":feature:main:repository:api"))
     implementation(project(":feature:main:domain:api"))
 
+    implementation(libs.androidx.core.ktx)
+
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
 
@@ -19,10 +21,10 @@ dependencies {
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
-    testImplementation(libs.koin.test)
-    testImplementation(libs.koin.junit4)
 
-    implementation(libs.androidx.core.ktx)
-    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.coroutines.test)
 }

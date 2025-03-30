@@ -8,6 +8,8 @@ espressoCore = "3.5.1"
 junit = "4.13.2"
 junit5 = "5.11.4"
 junitVersion = "1.1.5"
+androidx-test-core = "1.6.1"
+androidx-test-runner = "1.6.2"
 koinBom = "4.0.0"
 kotest = "5.9"
 kotest-extensions-roboelectric = "0.5.0"
@@ -41,6 +43,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
