@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers.IO
 import org.koin.dsl.module
 import com.epiclabs.thinktok.core.ioDispatcherQualifier
 import com.epiclabs.thinktok.main.domain.GetLanguageScreenStringResourcesUseCase
+import com.epiclabs.thinktok.main.domain.GetWordsUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 
 val mainDomainModule =
@@ -21,5 +22,8 @@ val mainDomainModule =
         }
         factory {
             GetLanguageScreenStringResourcesUseCase()
+        }
+        factory {
+            GetWordsUseCase(get())
         }
     }
