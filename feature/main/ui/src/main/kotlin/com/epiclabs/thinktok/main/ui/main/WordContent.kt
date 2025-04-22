@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -49,40 +50,12 @@ internal fun WordContent(
             contentAlignment = Alignment.Center,
         ) {
             FlippableFlashcard(
-                modifier =
-                    Modifier
-                        .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 front = {
-                    Column(
-                        modifier =
-                            Modifier
-                                .fillMaxSize()
-                                .background(color = MaterialTheme.colorScheme.primaryContainer),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center,
-                    ) {
-                        Text(
-                            text = word,
-                            style = MaterialTheme.typography.headlineMedium,
-                            textAlign = TextAlign.Center,
-                        )
-                    }
+                    FrontWord(word)
                 },
                 back = {
-                    Column(
-                        modifier =
-                            Modifier
-                                .fillMaxSize()
-                                .background(MaterialTheme.colorScheme.surfaceVariant),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center,
-                    ) {
-                        Text(
-                            text = translation,
-                            style = MaterialTheme.typography.headlineMedium,
-                            textAlign = TextAlign.Center,
-                        )
-                    }
+                    BackWord(translation)
                 },
             )
         }
@@ -91,25 +64,65 @@ internal fun WordContent(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
-            Button(
-                onClick = { /* Handle "I don't know" */ },
-                shape = RoundedCornerShape(16.dp),
-                modifier = Modifier.weight(1f).padding(end = 8.dp),
-            ) {
-                Text("I don’t know", color = Color.White)
-                Spacer(modifier = Modifier.width(4.dp))
-                Text("✖", color = Color.White)
+            DecisionButton("I don’t know", "✖") {
+                // Handle "I don't know"
             }
-
-            Button(
-                onClick = { /* Handle "I know" */ },
-                shape = RoundedCornerShape(16.dp),
-                modifier = Modifier.weight(1f).padding(start = 8.dp),
-            ) {
-                Text("I know", color = Color.White)
-                Spacer(modifier = Modifier.width(4.dp))
-                Text("✔", color = Color.White)
+            DecisionButton("I know", "✔") {
+                // Handle "I don't know"
             }
         }
+    }
+}
+
+@Composable
+private fun FrontWord(word: String) {
+    Column(
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.primaryContainer),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Text(
+            text = word,
+            style = MaterialTheme.typography.headlineMedium,
+            textAlign = TextAlign.Center,
+        )
+    }
+}
+
+@Composable
+private fun BackWord(translation: String) {
+    Column(
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.surfaceVariant),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Text(
+            text = translation,
+            style = MaterialTheme.typography.headlineMedium,
+            textAlign = TextAlign.Center,
+        )
+    }
+}
+
+@Composable
+fun RowScope.DecisionButton(
+    text: String,
+    icon: String,
+    onClick: () -> Unit,
+) {
+    Button(
+        onClick = onClick,
+        shape = RoundedCornerShape(16.dp),
+        modifier = Modifier.weight(1f).padding(start = 8.dp),
+    ) {
+        Text(text, color = Color.White)
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(icon, color = Color.White)
     }
 }
