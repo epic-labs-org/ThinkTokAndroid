@@ -8,4 +8,6 @@ android {
 
 dependencies {
     implementation(project(":feature:main:domain:api"))
+
+    implementation(libs.paging.common)
 }
