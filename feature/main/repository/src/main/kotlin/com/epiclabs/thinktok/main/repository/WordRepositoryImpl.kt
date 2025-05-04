@@ -2,6 +2,7 @@ package com.epiclabs.thinktok.main.repository
 
 import androidx.paging.PagingData
 import com.epiclabs.thinktok.main.domain.api.model.Word
+import com.epiclabs.thinktok.main.domain.api.model.WordReaction
 import com.epiclabs.thinktok.main.domain.api.repository.WordRepository
 import com.epiclabs.thinktok.main.repository.api.WordLocalDataSource
 import kotlinx.coroutines.CoroutineDispatcher
@@ -28,4 +29,16 @@ internal class WordRepositoryImpl(
         withContext(ioDispatcher) {
             wordLocalDataSource.clearAllWords()
         }
+
+    override suspend fun insertWordReaction(wordReaction: WordReaction) {
+        withContext(ioDispatcher) {
+            wordLocalDataSource.insertWordReaction(wordReaction)
+        }
+    }
+
+    override suspend fun clearAllWordReactions() {
+        withContext(ioDispatcher) {
+            wordLocalDataSource.clearAllWordReactions()
+        }
+    }
 }
