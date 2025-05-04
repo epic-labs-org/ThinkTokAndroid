@@ -12,9 +12,14 @@ import com.epiclabs.thinktok.main.domain.api.model.Word
 import com.epiclabs.thinktok.main.repository.api.WordLocalDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import com.epiclabs.thinktok.data.local.dao.WordReactionDao
+import com.epiclabs.thinktok.data.local.mapper.toWordReaction
+import com.epiclabs.thinktok.data.local.mapper.toWordReactionEntity
+import com.epiclabs.thinktok.main.domain.api.model.WordReaction
 
 internal class WordLocalDataSourceImpl(
     private val wordDao: WordDao,
+    private val wordReactionDao: WordReactionDao,
 ) : WordLocalDataSource {
     override fun getWords(): Flow<PagingData<Word>> {
         return Pager(
@@ -38,5 +43,22 @@ internal class WordLocalDataSourceImpl(
 
     override suspend fun clearAllWords() {
         wordDao.clearAll()
+    }
+
+    override suspend fun getWordReactions(wordId: Int): Flow<List<WordReaction>> =
+        wordReactionDao
+            .getWordReaction(wordId)
+            .map {
+                it.map { wordReactionEntity ->
+                    wordReactionEntity.toWordReaction()
+                }
+            }
+
+    override suspend fun insertWordReaction(wordReaction: WordReaction) {
+        wordReactionDao.insert(wordReaction.toWordReactionEntity())
+    }
+
+    override suspend fun clearAllWordReactions() {
+        wordReactionDao.clearAll()
     }
 }
