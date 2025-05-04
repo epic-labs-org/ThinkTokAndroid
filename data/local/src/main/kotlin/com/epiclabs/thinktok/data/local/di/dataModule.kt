@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.epiclabs.thinktok.data.local.dao.UserPreferenceDao
 import com.epiclabs.thinktok.data.local.dao.WordDao
+import com.epiclabs.thinktok.data.local.dao.WordReactionDao
 import com.epiclabs.thinktok.data.local.db.AppDatabase
 import com.epiclabs.thinktok.data.local.source.UserPreferenceLocalDataSourceImpl
 import com.epiclabs.thinktok.data.local.source.WordLocalDataSourceImpl
@@ -16,9 +17,10 @@ val dataModule =
         single { provideDatabase(get()) }
         single { provideUserPreferenceDao(get()) }
         single { provideWordDao(get()) }
+        single { provideWordReactionDao(get()) }
 
         single<UserPreferenceLocalDataSource> { UserPreferenceLocalDataSourceImpl(get()) }
-        single<WordLocalDataSource> { WordLocalDataSourceImpl(get()) }
+        single<WordLocalDataSource> { WordLocalDataSourceImpl(get(), get()) }
     }
 
 private fun provideDatabase(application: Application): AppDatabase {
@@ -35,4 +37,8 @@ private fun provideUserPreferenceDao(database: AppDatabase): UserPreferenceDao {
 
 private fun provideWordDao(database: AppDatabase): WordDao {
     return database.wordDao()
+}
+
+private fun provideWordReactionDao(database: AppDatabase): WordReactionDao {
+    return database.wordReactionDao()
 }
