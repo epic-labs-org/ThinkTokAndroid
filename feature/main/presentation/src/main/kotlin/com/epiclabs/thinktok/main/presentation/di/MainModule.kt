@@ -2,13 +2,15 @@ package com.epiclabs.thinktok.main.presentation.di
 
 import com.epiclabs.thinktok.main.presentation.main.MainViewModel
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionViewModel
+import com.epiclabs.thinktok.main.presentation.main.mapper.WordMapper
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
-// TODO("It's a test module! it will be removed as part of #30")
 val mainModule =
     module {
-
+        factory {
+            WordMapper()
+        }
         viewModel {
             MainViewModel(get())
         }
