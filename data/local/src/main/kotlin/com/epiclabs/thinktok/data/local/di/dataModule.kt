@@ -28,7 +28,9 @@ private fun provideDatabase(application: Application): AppDatabase {
         application,
         AppDatabase::class.java,
         "app_database",
-    ).build()
+    )
+        .createFromAsset("words_database.db")
+        .build()
 }
 
 private fun provideUserPreferenceDao(database: AppDatabase): UserPreferenceDao {
