@@ -11,10 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.paging.PagingData
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.epiclabs.thinktok.main.presentation.main.MainUiIntent.OnSetLanguageClicked
 import com.epiclabs.thinktok.main.presentation.main.MainUiState
 import com.epiclabs.thinktok.main.presentation.main.MainViewModel
+import com.epiclabs.thinktok.main.presentation.main.model.WordUiModel
 import com.epiclabs.thinktok.main.ui.languageselection.LanguageSelectionScreen
+import kotlinx.coroutines.flow.flowOf
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -23,14 +28,23 @@ fun MainScreen(
     viewModel: MainViewModel = koinViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val words: LazyPagingItems<WordUiModel> = viewModel.words.collectAsLazyPagingItems()
 
-    MainScreen(modifier, uiState) { viewModel.onUiIntent(OnSetLanguageClicked) }
+    MainScreen(
+        modifier = modifier,
+        uiState = uiState,
+        pagingItems = words,
+        onLanguageSetClicked = {
+            viewModel.onUiIntent(OnSetLanguageClicked)
+        },
+    )
 }
 
 @Composable
 private fun MainScreen(
     modifier: Modifier = Modifier,
     uiState: MainUiState,
+    pagingItems: LazyPagingItems<WordUiModel>,
     onLanguageSetClicked: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
@@ -56,7 +70,7 @@ private fun MainScreen(
                         )
                     },
                     wordContent = {
-                        WordPager()
+                        WordPager(pagingItems)
                     },
                 )
             }
@@ -73,5 +87,6 @@ fun MainScreenPreview() {
                 hideLanguageSelectionScreen = true,
                 isLoading = false,
             ),
+        pagingItems = flowOf(PagingData.empty<WordUiModel>()).collectAsLazyPagingItems(),
     )
 }

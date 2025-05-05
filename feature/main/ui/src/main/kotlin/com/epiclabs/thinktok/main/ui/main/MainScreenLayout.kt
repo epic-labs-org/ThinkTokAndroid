@@ -10,6 +10,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.paging.PagingData
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.epiclabs.thinktok.main.presentation.main.model.WordUiModel
+import kotlinx.coroutines.flow.flowOf
 
 typealias BoxScopeToUnit = @Composable BoxScope.() -> Unit
 typealias PagerScopeContent = @Composable PagerScope.(page: Int) -> Unit
@@ -38,7 +42,7 @@ private fun MainScreenLayoutPreview() {
             )
         },
         wordContent = {
-            WordPager()
+            WordPager(flowOf(PagingData.from(listOf(WordUiModel(0, "Hello", "Hallo")))).collectAsLazyPagingItems())
         },
     )
 }
