@@ -12,7 +12,7 @@ val mainModule =
             WordMapper()
         }
         viewModel {
-            MainViewModel(get())
+            MainViewModel(get(), get(), get())
         }
         viewModel {
             LanguageSelectionViewModel(get(), get(), get())
