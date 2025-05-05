@@ -7,6 +7,7 @@ import org.koin.dsl.module
 import com.epiclabs.thinktok.core.ioDispatcherQualifier
 import com.epiclabs.thinktok.main.domain.GetLanguageScreenStringResourcesUseCase
 import com.epiclabs.thinktok.main.domain.GetWordsUseCase
+import com.epiclabs.thinktok.main.domain.InsertWordReactionUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 
 val mainDomainModule =
@@ -25,5 +26,8 @@ val mainDomainModule =
         }
         factory {
             GetWordsUseCase(get())
+        }
+        factory {
+            InsertWordReactionUseCase(get())
         }
     }
