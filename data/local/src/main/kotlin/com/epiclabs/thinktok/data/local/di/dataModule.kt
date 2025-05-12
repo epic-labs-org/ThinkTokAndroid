@@ -29,6 +29,7 @@ private fun provideDatabase(application: Application): AppDatabase {
         AppDatabase::class.java,
         "app_database",
     )
+        .fallbackToDestructiveMigration()
         .createFromAsset("words_database.db")
         .build()
 }
