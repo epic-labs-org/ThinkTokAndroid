@@ -15,7 +15,7 @@ import com.epiclabs.thinktok.data.local.entity.WordReactionEntity
         WordEntity::class,
         WordReactionEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 internal abstract class AppDatabase : RoomDatabase() {
