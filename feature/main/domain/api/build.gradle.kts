@@ -10,4 +10,5 @@ dependencies {
     api(project(":core"))
 
     api(libs.coroutines.android)
+    api(libs.paging.common)
 }
