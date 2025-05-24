@@ -87,6 +87,7 @@ class LanguageSelectionViewModel(
                                 languageSelectionUiModel =
                                     it.languageSelectionUiModel.copy(
                                         yourLanguages = srtingResources.supportedOriginLanguages,
+                                        chooseLanguageHint = srtingResources.chooseLanguageHint,
                                         originLanguage = srtingResources.originLanguagePlaceHolder,
                                         languagesToLearn = srtingResources.supportedLearningLanguages,
                                         learningLanguage = srtingResources.learningLanguagePlaceHolder,

@@ -9,6 +9,7 @@ data class LanguageSelectionUiState(
             originLanguage = "",
             languagesToLearn = listOf(),
             learningLanguage = "",
+            chooseLanguageHint = "",
             yourLanguageLabel = "e",
             languageToLearnLabel = "",
             buttonText = "",
