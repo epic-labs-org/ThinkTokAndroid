@@ -7,7 +7,7 @@ class GetLanguageScreenStringResourcesUseCase() {
             originLanguagePlaceHolder = "Persian",
             supportedLearningLanguages = listOf("English", "Persian", "Spanish", "French"),
             learningLanguagePlaceHolder = "English",
-            yourLanguageLabel = "Your Language",
+            yourLanguageLabel = "Let’s get started! \uD83C\uDF0D \nChoose your native language and the language you want to learn:",
             languageToLearnLabel = "What language do you want to learn",
             buttonText = "Submit and continue",
         )

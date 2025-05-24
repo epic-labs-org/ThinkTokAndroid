@@ -24,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.epiclabs.thinktok.designsystem.R
+import com.epiclabs.thinktok.designsystem.theme.ThinkTokTheme
 
 @Composable
 fun ThinkTokTemplate(
@@ -32,7 +33,7 @@ fun ThinkTokTemplate(
     onRightIconClick: (() -> Unit)? = null,
     content: @Composable () -> Unit,
 ) {
-    Column(modifier = modifier.fillMaxSize()) {
+    Column(modifier = modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         Header(
             appIcon = painterResource(R.drawable.app_header_icon),
             rightIcon = rightIcon,
@@ -59,8 +60,8 @@ private fun Header(
         modifier =
             Modifier
                 .fillMaxWidth()
-                .height(56.dp)
-                .background(Color(0xFF0078D9)),
+                .height(64.dp)
+                .background(MaterialTheme.colorScheme.primary),
     ) {
         Row(
             modifier =
@@ -103,13 +104,15 @@ private fun Header(
 @Preview(showBackground = true)
 @Composable
 internal fun ThinkTokScreenTemplatePreview() {
-    ThinkTokTemplate {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Text("Preview Content", style = MaterialTheme.typography.bodyLarge)
+    ThinkTokTheme {
+        ThinkTokTemplate {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text("Preview Content", style = MaterialTheme.typography.bodyLarge)
+            }
         }
     }
 }
@@ -117,16 +120,18 @@ internal fun ThinkTokScreenTemplatePreview() {
 @Preview(showBackground = true)
 @Composable
 internal fun ThinkTokScreenTemplateWithRightIconPreview() {
-    ThinkTokTemplate(
-        rightIcon = painterResource(R.drawable.app_header_icon),
-        onRightIconClick = {},
-    ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+    ThinkTokTheme {
+        ThinkTokTemplate(
+            rightIcon = painterResource(R.drawable.app_header_icon),
+            onRightIconClick = {},
         ) {
-            Text("Preview Content", style = MaterialTheme.typography.bodyLarge)
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text("Preview Content", style = MaterialTheme.typography.bodyLarge)
+            }
         }
     }
 }
