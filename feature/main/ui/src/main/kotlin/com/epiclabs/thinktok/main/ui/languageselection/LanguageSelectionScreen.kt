@@ -1,19 +1,27 @@
 package com.epiclabs.thinktok.main.ui.languageselection
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.epiclabs.thinktok.designsystem.component.ThinkTokTemplate
+import com.epiclabs.thinktok.designsystem.component.cardStyle
+import com.epiclabs.thinktok.designsystem.theme.ThinkTokTheme
+import com.epiclabs.thinktok.main.ui.R
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.LearningLanguageSelected
 import com.epiclabs.thinktok.main.presentation.languageselection.LanguageSelectionUiIntent.OriginLanguageSelected
@@ -30,45 +38,69 @@ private fun LanguageSelectionScreen(
     onLanguageToLearnSelected: (String) -> Unit = {},
     onSubmitClicked: () -> Unit = {},
 ) = with(languageSelectionUiModel) {
-    Column(
-        modifier =
-            Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-    ) {
-        Text(text = yourLanguageLabel)
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        LanguageDropdown(
-            languages = yourLanguages,
-            placeholder = originLanguage,
-            onLanguageSelected = onOriginLanguageSelected,
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(text = languageToLearnLabel, modifier = Modifier.padding(top = 16.dp))
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        LanguageDropdown(
-            languages = languagesToLearn,
-            placeholder = learningLanguage,
-            onLanguageSelected = onLanguageToLearnSelected,
-            enabled = languagesToLearnEnabled,
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        SubmitAndContinueButton(
-            onClick = onSubmitClicked,
-            buttonText = buttonText,
+    ThinkTokTemplate {
+        Column(
             modifier =
                 Modifier
-                    .padding(top = 16.dp)
-                    .fillMaxWidth(),
-        )
+                    .fillMaxWidth()
+                    .cardStyle()
+                    .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Image(
+                modifier = Modifier.size(80.dp),
+                contentDescription = "",
+                painter = painterResource(R.drawable.language_header),
+            )
+            Text(
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                style = MaterialTheme.typography.titleMedium,
+                text = chooseLanguageHint,
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                style = MaterialTheme.typography.titleSmall,
+                text = yourLanguageLabel,
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            LanguageDropdown(
+                languages = yourLanguages,
+                placeholder = originLanguage,
+                onLanguageSelected = onOriginLanguageSelected,
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                style = MaterialTheme.typography.titleSmall,
+                text = languageToLearnLabel,
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+
+            LanguageDropdown(
+                languages = languagesToLearn,
+                placeholder = learningLanguage,
+                onLanguageSelected = onLanguageToLearnSelected,
+                enabled = languagesToLearnEnabled,
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            SubmitAndContinueButton(
+                onClick = onSubmitClicked,
+                buttonText = buttonText,
+                modifier =
+                    Modifier
+                        .padding(top = 16.dp)
+                        .fillMaxWidth(),
+            )
+        }
     }
 }
 
@@ -104,16 +136,19 @@ internal fun LanguageSelectionScreen(
 @Preview(showBackground = true)
 @Composable
 internal fun PreviewLanguageSelectionScreen() {
-    LanguageSelectionScreen(
-        LanguageSelectionUiModel(
-            yourLanguages = listOf("Persian"),
-            originLanguage = "Persian",
-            languagesToLearn = listOf("English"),
-            learningLanguage = "English",
-            yourLanguageLabel = "Your Language",
-            languageToLearnLabel = "What language do you want to learn",
-            buttonText = "Submit and continue",
-            languagesToLearnEnabled = false,
-        ),
-    )
+    ThinkTokTheme {
+        LanguageSelectionScreen(
+            LanguageSelectionUiModel(
+                yourLanguages = listOf("Persian"),
+                originLanguage = "Persian",
+                languagesToLearn = listOf("English"),
+                learningLanguage = "English",
+                chooseLanguageHint = "Let’s get started! \uD83C\uDF0D\nChoose your native language and the language you want to learn:",
+                yourLanguageLabel = "My native language",
+                languageToLearnLabel = "I want to learn",
+                buttonText = "Let’s go!",
+                languagesToLearnEnabled = false,
+            ),
+        )
+    }
 }
